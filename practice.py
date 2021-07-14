@@ -15,3 +15,7 @@ print(title.text)
 # Extracting element based on tag
 link = soup.find('a') # will return the first <a> tag
 print(link)
+
+# Extracting element based on class name
+quote = soup.find(class_ = 'text') # will return the first tag having the class 'text'
+print(quote.text) 
