@@ -11,3 +11,7 @@ soup = BeautifulSoup(website.text, 'html.parser')
 # Let's first try to get the title of the website
 title = soup.find('title')
 print(title.text)
+
+# Extracting element based on tag
+link = soup.find('a') # will return the first <a> tag
+print(link)
