@@ -40,9 +40,17 @@ login_link = soup.find(href = '/login')
 
 # Extracting elements from parent class
 
-quote = soup.find(class_ = 'quote')
-quote_text = quote.find(class_ = 'text')
-author = quote.find(class_ = 'author')
+quote = soup.find_all(class_ = 'quote')
+# quote_text = quote.find(class_ = 'text')
+# author = quote.find(class_ = 'author')
 
-print(quote_text.text)
-print(author.text)
+# Extracting all quotes and their respective authors
+author_lst = []
+for i in quote:
+    author = i.find(class_='author')
+    author_lst.append(author.text)
+
+quote_lst = []
+for i in quote:
+    text = i.find(class_ = 'text')
+    quote_lst.append(text.text)
