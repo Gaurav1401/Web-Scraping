@@ -26,8 +26,11 @@ quote = soup.find(class_ = 'text') # will return the first tag having the class 
 links = soup.find_all('a') # all the a tags
 #print(links) # It will return the whole tag in list format
 
-for i in links:
-    print(i.text) # Will retun all the texts which contains hyperlinks
+# for i in links:
+#     print(i.text) # Will retun all the texts which contains hyperlinks
 
 
+quotes = soup.find_all(class_ = "text") # Getting all the quotes
+for i in quotes:
+    print(i.text)
 
