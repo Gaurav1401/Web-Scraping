@@ -31,6 +31,18 @@ links = soup.find_all('a') # all the a tags
 
 
 quotes = soup.find_all(class_ = "text") # Getting all the quotes
-for i in quotes:
-    print(i.text)
+# for i in quotes:
+#     print(i.text)
 
+# Using other attributes to extract elements
+login_link = soup.find(href = '/login')
+# print(login_link)
+
+# Extracting elements from parent class
+
+quote = soup.find(class_ = 'quote')
+quote_text = quote.find(class_ = 'text')
+author = quote.find(class_ = 'author')
+
+print(quote_text.text)
+print(author.text)
