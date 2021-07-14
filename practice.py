@@ -54,3 +54,13 @@ quote_lst = []
 for i in quote:
     text = i.find(class_ = 'text')
     quote_lst.append(text.text)
+
+# Storing records in dataframe
+record = {}
+record['Quote'] = quote_lst
+record['Author'] = author_lst
+
+import pandas as pd
+
+df = pd.DataFrame(record)
+print(df)
