@@ -62,5 +62,33 @@ record['Author'] = author_lst
 
 import pandas as pd
 
-df = pd.DataFrame(record)
-print(df)
+# df = pd.DataFrame(record)
+# print(df)
+
+# Doing the same thing using CSS selectors
+
+quotes = soup.select('.quote')
+
+q_lst = []
+a_lst = []
+t_lst = []
+all_tag = []
+for quote in quotes:
+    t_lst = []
+    text = quote.select_one('.text')
+    q_lst.append(text.text)
+    author = quote.select_one('.author')
+    a_lst.append(author.text)
+    tags = quote.select('.tag')
+    for tag in tags:
+        t_lst.append(tag.text)
+    all_tag.append(t_lst)
+
+record = {}
+
+record['Quote'] = q_lst
+record['Author'] = a_lst
+record['Tags'] = all_tag
+
+scraped_data = pd.DataFrame(record)
+print(scraped_data)
