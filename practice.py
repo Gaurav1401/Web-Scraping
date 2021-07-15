@@ -44,5 +44,13 @@ quote = soup.find(class_ = 'quote')
 quote_text = quote.find(class_ = 'text')
 author = quote.find(class_ = 'author')
 
-print(quote_text.text)
-print(author.text)
+# print(quote_text.text)
+# print(author.text)
+
+# Extracting elements using CSS selector
+
+quote_text = soup.select_one(".text") # select the first element havign class = 'text'
+# print(quote_text)
+
+quotes = soup.select(".text") # select all the tags having class = 'text'
+print(quotes)
