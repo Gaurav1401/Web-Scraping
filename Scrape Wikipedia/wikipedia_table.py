@@ -12,4 +12,6 @@ table_rows = first_table.select('tr')[2:]
 for row in table_rows[:3]:
     table_data = row.select('td')
     country = table_data[0].find('a').text
-    print(country)
+    continent = table_data[1].find('a').text
+    population = table_data[2].text
+    print(population)
