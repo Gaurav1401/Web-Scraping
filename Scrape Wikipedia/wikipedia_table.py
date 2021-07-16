@@ -22,4 +22,6 @@ for row in table_rows:
     source = table_data[5].text.split('[')[0]
     csv_data.append([country, continent, population, percent, date, source])
 
-print(csv_data)
+with open('countries_population_data.csv', 'w') as file:
+    writer = csv.writer(file)
+    writer.writerows(csv_data)
