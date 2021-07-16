@@ -9,9 +9,12 @@ soup = BeautifulSoup(website.text, 'html.parser')
 first_table = soup.select_one('.wikitable')
 table_rows = first_table.select('tr')[2:]
 
-for row in table_rows[:3]:
+for row in table_rows:
     table_data = row.select('td')
     country = table_data[0].find('a').text
     continent = table_data[1].find('a').text
     population = table_data[2].text
-    print(population)
+    percent = table_data[3].text
+    date = table_data[4].find('span').text
+    source = table_data[5].text.split('[')[0]
+    print(source)
