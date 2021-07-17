@@ -10,4 +10,6 @@ website = requests.get('https://www.britannica.com/biography/Mortimer-J-Adler')
 soup = BeautifulSoup(website.text, 'html.parser')
 
 name = soup.select_one('h1').text
-print(name)
+about = soup.select_one('.topic-identifier').text
+summary = soup.select_one('.topic-paragraph').text
+print(summary)
