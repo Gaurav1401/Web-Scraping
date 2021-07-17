@@ -7,7 +7,7 @@ import csv
 # then we will scrape the data of rest
 website = requests.get('https://www.britannica.com/biography/Mortimer-J-Adler')
 
-soup = BeautifulSoup(website, 'html.parser')
+soup = BeautifulSoup(website.text, 'html.parser')
 
-name = soup.select_one('h1')
+name = soup.select_one('h1').text
 print(name)
