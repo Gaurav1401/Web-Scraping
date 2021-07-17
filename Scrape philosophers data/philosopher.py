@@ -12,4 +12,7 @@ soup = BeautifulSoup(website.text, 'html.parser')
 name = soup.select_one('h1').text
 about = soup.select_one('.topic-identifier').text
 summary = soup.select_one('.topic-paragraph').text
-print(summary)
+image_src = soup.select_one('.fact-box-picture img').attrs['src'] # extracting attribute from a tag
+birth_date = soup.find(attrs={"data-label" : "born"}).find('dd').get_text(separator = '|').split('|')[0]
+death_date = soup.find(attrs={"data-label" : "died"}).find('dd').get_text(separator = '|').split('|')[0]
+print(death_date)
